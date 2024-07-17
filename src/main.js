@@ -69,6 +69,7 @@ async function handleSearch(event) {
     } else {
       hide(loadMoreBtn);
     }
+    smoothScroll();
   } catch (error) {
     console.error(error);
     iziToast.error({
