@@ -8,6 +8,13 @@ const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('[data-action="load-more"]');
 const spinner = document.querySelector('.spinner');
 const searchForm = document.querySelector('.search-form');
+const galleryItemHeight = document
+  .querySelector('.gallery-item')
+  .getBoundingClientRect().height;
+window.scrollBy({
+  top: galleryItemHeight * 2,
+  behavior: 'smooth',
+});
 
 const hiddenClass = 'is-hidden';
 let q = '';
