@@ -1,84 +1,94 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css'); */
+ body {
+   font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+   line-height: 1.5;
+   color: #2a2a2a;
+   height: 1000vh;
+ }
 
-/* :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+ img {
+   display: block;
+   max-width: 100%;
+   height: auto;
+ }
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+ .search-form {
+   display: flex;
+   justify-content: center;
+   padding: 8px;
+   margin-bottom: 24px;
+ }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-} */
-.search-form {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  gap: 10px;
-}
+ .button {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+ }
 
-.search-input {
-  min-width: 272px;
-  min-height: 40px;
+ .button.is-hidden {
+   display: none;
+ }
 
-}
+ .button>.spinner.is-hidden {
+   display: none;
+ }
 
-::placeholder {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #808080;
-  border: none;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 16px;
-}
+ .search-form {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+   gap: 10px;
+ }
 
-.search-button {
-  border-radius: 8px;
-  padding: 8px 16px;
-  width: 91px;
-  height: 40px;
-  background-color: #4e75ff;
-  border: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #fff;
-}
+ .search-input {
+   min-width: 272px;
+   min-height: 40px;
+
+ }
+
+ ::placeholder {
+   font-family: "Montserrat", sans-serif;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 1.5;
+   letter-spacing: 0.04em;
+   color: #808080;
+   border: none;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   padding-left: 16px;
+ }
+
+ .search-button {
+   border-radius: 8px;
+   padding: 8px 16px;
+   width: 91px;
+   height: 40px;
+   background-color: #4e75ff;
+   border: none;
+   font-family: "Montserrat", sans-serif;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 1.5;
+   letter-spacing: 0.04em;
+   color: #fff;
+ }
 
 
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+ .loader {
+   border: 16px solid #f3f3f3;
+   border-radius: 50%;
+   border-top: 16px solid #3498db;
+   width: 120px;
+   height: 120px;
+   animation: spin 2s linear infinite;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
 
-/* @keyframes spin {
+ /* @keyframes spin {
       0% {
         transform: rotate(0deg);
       }
@@ -89,37 +99,52 @@
     } */
 
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: space-between;
+ .gallery {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   justify-content: space-between;
 
-}
+ }
 
-.gallery a {
-  flex: 0 1 calc(16.66% - 10px);
-  /* 100% / 6 = 16.66%, віднімаючи відстань між зображеннями */
-  display: block;
-  text-decoration: none;
-  overflow: hidden;
-}
+ .gallery a {
+   flex: 0 1 calc(16.66% - 10px);
+   /* 100% / 6 = 16.66%, віднімаючи відстань між зображеннями */
+   display: block;
+   text-decoration: none;
+   overflow: hidden;
+ }
 
-.gallery img {
-  min-width: 100%;
-  max-height: 150px;
-  /* Встановлюємо висоту для однакового розміру */
-  object-fit: cover;
-  /* Забезпечує однакове відображення зображень */
-}
+ .gallery img {
+   min-width: 100%;
+   max-height: 150px;
+   /* Встановлюємо висоту для однакового розміру */
+   object-fit: cover;
+   /* Забезпечує однакове відображення зображень */
+ }
 
-.info {
-  margin-top: 10px;
-  font-size: 14px;
-  /* Розмір тексту */
-}
+ .info {
+   margin-top: 10px;
+   font-size: 14px;
+   /* Розмір тексту */
+ }
 
-.info p {
-  margin: 0;
-  color: #333;
-}
+ .info p {
+   margin: 0;
+   color: #333;
+ }
+
+ .button{
+  border-radius: 8px;
+    padding: 8px 16px;
+    width: 91px;
+    height: 40px;
+    background-color: #4e75ff;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+ }
