@@ -78,6 +78,7 @@ async function handleSearch(event) {
     } else {
       hide(loadMoreBtn);
     }
+    smoothScroll();
   } catch (error) {
     console.error(error);
     iziToast.error({
@@ -160,3 +161,10 @@ let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
+function smoothScroll() {
+  const { height: cardHeight } = document.querySelector('.gallery-item').getBoundingClientRect();
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
+}
