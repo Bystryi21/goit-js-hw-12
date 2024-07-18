@@ -146,15 +146,15 @@ function appendImagesMarkup(images) {
   lightbox.refresh();
 }
 
-function smoothScroll() {
-  const galleryItemHeight =
-    document.querySelector('.gallery-item')?.getBoundingClientRect().height ||
-    0;
-  window.scrollBy({
-    top: galleryItemHeight * 2,
-    behavior: 'smooth',
-  });
-}
+// function smoothScroll() {
+//   const galleryItemHeight =
+//     document.querySelector('.gallery-item')?.getBoundingClientRect().height ||
+//     0;
+//   window.scrollBy({
+//     top: galleryItemHeight * 2,
+//     behavior: 'smooth',
+//   });
+// }
 
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
