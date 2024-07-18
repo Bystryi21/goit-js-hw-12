@@ -8,13 +8,6 @@ const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('[data-action="load-more"]');
 const spinner = document.querySelector('.spinner');
 const searchForm = document.querySelector('.search-form');
-const galleryItemHeight = document
-  .querySelector('.gallery-item')
-  .getBoundingClientRect().height;
-window.scrollBy({
-  top: galleryItemHeight * 2,
-  behavior: 'smooth',
-});
 
 const hiddenClass = 'is-hidden';
 let q = '';
@@ -67,6 +60,15 @@ async function handleSearch(event) {
   try {
     const { hits, totalHits } = await fetchImages(q, page, perPage);
 
+    if (hits.length === 0) {
+      iziToast.warning({
+        title: 'No Results',
+        message: 'Sorry, there are no images matching your search query.',
+      });
+      hide(loadMoreBtn);
+      return;
+    }
+
     maxPage = Math.ceil(totalHits / perPage);
     appendImagesMarkup(hits);
 
@@ -93,7 +95,18 @@ async function handleLoadMore() {
 
   try {
     const { hits } = await fetchImages(q, page, perPage);
+
+    if (hits.length === 0) {
+      iziToast.warning({
+        title: 'No Results',
+        message: 'Sorry, there are no more images matching your search query.',
+      });
+      hide(loadMoreBtn);
+      return;
+    }
+
     appendImagesMarkup(hits);
+    smoothScroll();
   } catch (error) {
     console.error(error);
     iziToast.error({
@@ -113,7 +126,7 @@ async function handleLoadMore() {
 function appendImagesMarkup(images) {
   const markup = images
     .map(
-      image => `<li>
+      image => `<li class="gallery-item">
         <a href="${image.largeImageURL}" data-lightbox="gallery" data-title="${image.tags}">
           <img src="${image.webformatURL}" alt="${image.tags}" />
           <div class="info">
@@ -128,6 +141,19 @@ function appendImagesMarkup(images) {
     .join('');
 
   gallery.insertAdjacentHTML('beforeend', markup);
+
+  // Refresh the SimpleLightbox instance
+  lightbox.refresh();
+}
+
+function smoothScroll() {
+  const galleryItemHeight =
+    document.querySelector('.gallery-item')?.getBoundingClientRect().height ||
+    0;
+  window.scrollBy({
+    top: galleryItemHeight * 2,
+    behavior: 'smooth',
+  });
 }
 
 let lightbox = new SimpleLightbox('.gallery a', {
