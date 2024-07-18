@@ -143,7 +143,6 @@ function appendImagesMarkup(images) {
 
   gallery.insertAdjacentHTML('beforeend', markup);
 
-  // Refresh the SimpleLightbox instance
   lightbox.refresh();
 }
 
@@ -162,7 +161,9 @@ let lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 function smoothScroll() {
-  const { height: cardHeight } = document.querySelector('.gallery-item').getBoundingClientRect();
+  const { height: cardHeight } = document
+    .querySelector('.gallery-item')
+    .getBoundingClientRect();
   window.scrollBy({
     top: cardHeight * 2,
     behavior: 'smooth',
